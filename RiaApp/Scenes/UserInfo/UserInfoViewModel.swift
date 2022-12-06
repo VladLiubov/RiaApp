@@ -11,7 +11,8 @@ import SwiftUI
 class UserInfoViewModel: BaseViewModel<UserInfoViewModel.State, UserInfoViewModel.Action, Never> {
     
     enum Action {
-        case updateFirstNumber
+        case updateUserInfo(UserInfo)
+        case popupDidDisappear
     }
     
     struct State: AnyState {
@@ -20,11 +21,12 @@ class UserInfoViewModel: BaseViewModel<UserInfoViewModel.State, UserInfoViewMode
         }
         
         enum Screen: Equatable {
-            case showCommentsScreen
+            case back
         }
         //Screen
         public fileprivate(set) var showedScreen: Screen?
-       
+        //User
+        public fileprivate(set) var usersInfo: UserInfo!
         
         init() {}
         
@@ -32,8 +34,11 @@ class UserInfoViewModel: BaseViewModel<UserInfoViewModel.State, UserInfoViewMode
     
     override func action(_ action: Action) {
         switch action {
-        case let .updateFirstNumber:
-          break
+        case let .updateUserInfo(user):
+            state.usersInfo = user
+        case .popupDidDisappear:
+            state.showedScreen = nil
+            state.showedScreen = .back
         }
     }
     

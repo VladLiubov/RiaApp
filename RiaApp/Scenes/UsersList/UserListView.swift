@@ -63,7 +63,7 @@ extension UsersListViewController {
                                 maxHeight: .infinity,
                                 alignment: .topLeading
                             )
-                            .background(Color.white)
+                            .background(Color.clear)
                             .onTapGesture {
                                 viewModel.action(.showUserInfo(user))
                             }

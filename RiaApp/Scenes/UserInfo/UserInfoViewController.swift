@@ -60,7 +60,8 @@ private extension UserInfoViewController {
     guard viewModel.state.showedScreen != screen else { return }
     
     switch screen {
-
+    case .back:
+        hide(intent: .pop)
     default:
       break
     }

@@ -62,7 +62,12 @@ private extension UsersListViewController {
     switch screen {
         
     case .showUserInfoScreen:
-        break
+        let userInput: UserInfo = self.viewModel.state.usersInfo!
+        let viewModel = UserInfoViewModel(state: .init())
+        viewModel.action(.updateUserInfo(userInput))
+        let controller = UserInfoViewController(viewModel)
+          
+        show(controller, intent: .push)
 
     default:
       break
