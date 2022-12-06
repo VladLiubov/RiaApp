@@ -12,6 +12,7 @@ class UsersListViewModel: BaseViewModel<UsersListViewModel.State, UsersListViewM
     
     enum Action {
         case showUserInfo(UserInfo)
+        case showSaveUsers
     }
     
     struct State: AnyState {
@@ -21,6 +22,7 @@ class UsersListViewModel: BaseViewModel<UsersListViewModel.State, UsersListViewM
         
         enum Screen: Equatable {
             case showUserInfoScreen
+            case showSaveUsersScreen
         }
         
         //Screen
@@ -39,6 +41,9 @@ class UsersListViewModel: BaseViewModel<UsersListViewModel.State, UsersListViewM
             state.showedScreen = nil
             state.usersInfo = user
             state.showedScreen = .showUserInfoScreen
+        case .showSaveUsers:
+            state.showedScreen = nil
+            state.showedScreen = .showSaveUsersScreen
         }
     }
     

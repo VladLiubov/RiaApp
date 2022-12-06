@@ -1,5 +1,5 @@
 //
-//  UserListViewController.swift
+//  SaveUsersViewController.swift
 //  RiaApp
 //
 //  Created by Admin on 06.12.2022.
@@ -8,8 +8,8 @@
 import Combine
 import SwiftUI
 
-class UsersListViewController: SwiftUIViewController {
-  typealias ViewModel = UsersListViewModel
+class SaveUsersViewController: SwiftUIViewController {
+  typealias ViewModel = SaveUsersViewModel
   
   private let viewModel: ViewModel
   private var cancellables = Set<AnyCancellable>()
@@ -44,7 +44,7 @@ class UsersListViewController: SwiftUIViewController {
 }
 
 // - Subscribe
-private extension UsersListViewController {
+private extension SaveUsersViewController {
   
   func subscribe() {
     viewModel.$state.sink { [weak self] state in
@@ -68,13 +68,9 @@ private extension UsersListViewController {
         let controller = UserInfoViewController(viewModel)
           
         show(controller, intent: .push)
-        
-    case .showSaveUsersScreen:
-        let viewModel = SaveUsersViewModel(state: .init())
-        let controller = SaveUsersViewController(viewModel)
-          
-        show(controller, intent: .push)
 
+    case .back:
+        hide(intent: .pop)
     default:
       break
     }

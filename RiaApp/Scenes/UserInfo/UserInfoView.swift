@@ -17,6 +17,7 @@ extension UserInfoViewController {
         
         init(_ viewModel: ViewModel) {
             self._viewModel = .init(initialValue: viewModel)
+            viewModel.checkSavedPerson()
         }
         
         public var body: some View {
@@ -49,7 +50,12 @@ extension UserInfoViewController {
                     .foregroundColor(.orange)
                 
             } right: {
-                
+                Button {
+                    viewModel.action(.saveOrDeleteUser)
+                } label: {
+                    Image(systemName: viewModel.state.showSaveUser ? "square.and.arrow.down.fill" : "square.and.arrow.down")
+                        .foregroundColor(.orange)
+                }
             }
             .padding(.horizontal, 20)
             .padding(.top, 15)

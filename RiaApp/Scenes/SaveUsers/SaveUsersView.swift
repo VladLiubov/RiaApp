@@ -1,5 +1,5 @@
 //
-//  UserInfoView.swift
+//  SaveUsers.swift
 //  RiaApp
 //
 //  Created by Admin on 06.12.2022.
@@ -9,15 +9,15 @@ import SwiftUI
 import Combine
 import SDWebImageSwiftUI
 
-extension UsersListViewController {
+extension SaveUsersViewController {
     
     struct ContainerView: View {
         
         @ObservedObject var viewModel: ViewModel
+        @StateObject var realmManager = RealmManager()
         
         init(_ viewModel: ViewModel) {
             self._viewModel = .init(initialValue: viewModel)
-            viewModel.usersList()
         }
         
         public var body: some View {
@@ -36,20 +36,20 @@ extension UsersListViewController {
         //NavBar
         private var navBar: some View {
             CustomNavBar {
-               
+                Button {
+                    viewModel.action(.popupDidDisappear)
+                } label: {
+                    Image(systemName: "chevron.backward")
+                        .foregroundColor(.orange)
+                }
             } center: {
-                Text("Users")
+                Text("SaveUsers")
                     .font(.title2)
                     .fontWeight(.semibold)
                     .foregroundColor(.orange)
                 
             } right: {
-                Button {
-                    viewModel.action(.showSaveUsers)
-                } label: {
-                    Image(systemName: "list.bullet.rectangle.portrait")
-                        .foregroundColor(.orange)
-                }
+                
             }
             .padding(.horizontal, 20)
             .padding(.top, 15)
@@ -59,7 +59,7 @@ extension UsersListViewController {
         private var listComments: some View {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVStack(alignment: .leading, spacing: 12) {
-                    ForEach(viewModel.state.usersList, id: \.self) { user in
+                    ForEach(realmManager.users, id: \.id) { user in
                         userRow(user)
                             .frame(
                                 minWidth: 0,
@@ -69,33 +69,37 @@ extension UsersListViewController {
                                 alignment: .topLeading
                             )
                             .background(Color.clear)
-                            .onTapGesture {
-                                viewModel.action(.showUserInfo(user))
-                            }
                     }
                 }
                 .padding(.horizontal, 10)
             }
         }
         
-        func userRow(_ user: UserInfo) -> some View {
+        func userRow(_ user: UsersRealm) -> some View {
           return HStack {
-              WebImage(url: URL(string:user.picture.medium))
-                .resizable()
-                .scaledToFit()
-                .frame(width: 80, height: 80)
-                .clipShape(Circle())
+                  Image(uiImage: viewModel.loadImage(fileName: user.image)!)
+                      .resizable()
+                      .scaledToFit()
+                      .frame(width: 80, height: 80)
+                      .clipShape(Circle())
             
             VStack(alignment: .leading, spacing: 6, content: {
-                  Text(user.name.first + " " + user.name.last)
+                  Text(user.name)
                   Text(user.phone)
             })
             .bold()
             .foregroundColor(Color.black)
             .font(.caption)
+            Spacer()
+              Button {
+                  realmManager.deleteUser(name: user.name)
+              } label: {
+                  Image(systemName: "minus.circle")
+                      .foregroundColor(Color.red)
+              }
+              .padding(.trailing, 5)
           }
         }
     }
 }
-
 

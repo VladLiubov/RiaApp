@@ -34,6 +34,9 @@
 		844C47EC293FA5E100FE56E6 /* UIView+AddSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47EB293FA5E100FE56E6 /* UIView+AddSubviews.swift */; };
 		844C47EE293FA6AF00FE56E6 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47ED293FA6AF00FE56E6 /* Users.swift */; };
 		844C47F2293FAE1600FE56E6 /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47F1293FAE1600FE56E6 /* CustomNavBar.swift */; };
+		844C47F7293FC5AA00FE56E6 /* SaveUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47F6293FC5AA00FE56E6 /* SaveUsersView.swift */; };
+		844C47F9293FC5BE00FE56E6 /* SaveUsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47F8293FC5BE00FE56E6 /* SaveUsersViewModel.swift */; };
+		844C47FB293FC5CC00FE56E6 /* SaveUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47FA293FC5CC00FE56E6 /* SaveUsersViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +69,9 @@
 		844C47EB293FA5E100FE56E6 /* UIView+AddSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSubviews.swift"; sourceTree = "<group>"; };
 		844C47ED293FA6AF00FE56E6 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
 		844C47F1293FAE1600FE56E6 /* CustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
+		844C47F6293FC5AA00FE56E6 /* SaveUsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveUsersView.swift; sourceTree = "<group>"; };
+		844C47F8293FC5BE00FE56E6 /* SaveUsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveUsersViewModel.swift; sourceTree = "<group>"; };
+		844C47FA293FC5CC00FE56E6 /* SaveUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveUsersViewController.swift; sourceTree = "<group>"; };
 		C39F45CBB351175F51ED2867 /* Pods_RiaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RiaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBC9406B95CD95097FD48828 /* Pods-RiaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiaApp.release.xcconfig"; path = "Target Support Files/Pods-RiaApp/Pods-RiaApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +132,7 @@
 			children = (
 				844C47D0293FA3A300FE56E6 /* UsersList */,
 				844C47D1293FA3B500FE56E6 /* UserInfo */,
+				844C47F5293FC58B00FE56E6 /* SaveUsers */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -294,6 +301,16 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		844C47F5293FC58B00FE56E6 /* SaveUsers */ = {
+			isa = PBXGroup;
+			children = (
+				844C47F6293FC5AA00FE56E6 /* SaveUsersView.swift */,
+				844C47F8293FC5BE00FE56E6 /* SaveUsersViewModel.swift */,
+				844C47FA293FC5CC00FE56E6 /* SaveUsersViewController.swift */,
+			);
+			path = SaveUsers;
+			sourceTree = "<group>";
+		};
 		DBEE90FEDE3451605AB96426 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -430,6 +447,7 @@
 				844C47EA293FA5CB00FE56E6 /* AutolayoutBuilder.swift in Sources */,
 				844C47EE293FA6AF00FE56E6 /* Users.swift in Sources */,
 				844C47CF293FA26000FE56E6 /* AnyBaseViewModel.swift in Sources */,
+				844C47FB293FC5CC00FE56E6 /* SaveUsersViewController.swift in Sources */,
 				844C47A5293FA0CF00FE56E6 /* AppDelegate.swift in Sources */,
 				844C47C3293FA1D200FE56E6 /* ModelRealm.swift in Sources */,
 				844C47E7293FA51200FE56E6 /* SwiftUIViewController.swift in Sources */,
@@ -437,10 +455,12 @@
 				844C47CD293FA25500FE56E6 /* BaseViewController.swift in Sources */,
 				844C47D7293FA41A00FE56E6 /* UserListViewController.swift in Sources */,
 				844C47C9293FA23C00FE56E6 /* BaseFlow.swift in Sources */,
+				844C47F7293FC5AA00FE56E6 /* SaveUsersView.swift in Sources */,
 				844C47F2293FAE1600FE56E6 /* CustomNavBar.swift in Sources */,
 				844C47A7293FA0CF00FE56E6 /* SceneDelegate.swift in Sources */,
 				844C47D3293FA3DD00FE56E6 /* UserListView.swift in Sources */,
 				844C47CB293FA24900FE56E6 /* BaseFactory.swift in Sources */,
+				844C47F9293FC5BE00FE56E6 /* SaveUsersViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
