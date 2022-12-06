@@ -3,19 +3,41 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F95663B171D0D71D803A644 /* Pods_RiaApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C39F45CBB351175F51ED2867 /* Pods_RiaApp.framework */; };
 		844C47A5293FA0CF00FE56E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47A4293FA0CF00FE56E6 /* AppDelegate.swift */; };
 		844C47A7293FA0CF00FE56E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47A6293FA0CF00FE56E6 /* SceneDelegate.swift */; };
 		844C47A9293FA0CF00FE56E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47A8293FA0CF00FE56E6 /* ViewController.swift */; };
 		844C47AC293FA0CF00FE56E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844C47AA293FA0CF00FE56E6 /* Main.storyboard */; };
 		844C47AE293FA0D300FE56E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 844C47AD293FA0D300FE56E6 /* Assets.xcassets */; };
 		844C47B1293FA0D300FE56E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844C47AF293FA0D300FE56E6 /* LaunchScreen.storyboard */; };
+		844C47C0293FA1A200FE56E6 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47BF293FA1A200FE56E6 /* RealmManager.swift */; };
+		844C47C3293FA1D200FE56E6 /* ModelRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47C2293FA1D200FE56E6 /* ModelRealm.swift */; };
+		844C47C5293FA1F500FE56E6 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47C4293FA1F500FE56E6 /* APIService.swift */; };
+		844C47C9293FA23C00FE56E6 /* BaseFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47C8293FA23C00FE56E6 /* BaseFlow.swift */; };
+		844C47CB293FA24900FE56E6 /* BaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47CA293FA24900FE56E6 /* BaseFactory.swift */; };
+		844C47CD293FA25500FE56E6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47CC293FA25500FE56E6 /* BaseViewController.swift */; };
+		844C47CF293FA26000FE56E6 /* AnyBaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47CE293FA26000FE56E6 /* AnyBaseViewModel.swift */; };
+		844C47D3293FA3DD00FE56E6 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47D2293FA3DD00FE56E6 /* UserListView.swift */; };
+		844C47D5293FA40000FE56E6 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47D4293FA40000FE56E6 /* UserListViewModel.swift */; };
+		844C47D7293FA41A00FE56E6 /* UserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47D6293FA41A00FE56E6 /* UserListViewController.swift */; };
+		844C47D9293FA42900FE56E6 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47D8293FA42900FE56E6 /* UserInfoView.swift */; };
+		844C47DB293FA43500FE56E6 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47DA293FA43500FE56E6 /* UserInfoViewModel.swift */; };
+		844C47DD293FA44900FE56E6 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47DC293FA44900FE56E6 /* UserInfoViewController.swift */; };
+		844C47E3293FA4E000FE56E6 /* AnySwiftUIHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47E2293FA4E000FE56E6 /* AnySwiftUIHolderView.swift */; };
+		844C47E5293FA4FE00FE56E6 /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47E4293FA4FE00FE56E6 /* SwiftUIView.swift */; };
+		844C47E7293FA51200FE56E6 /* SwiftUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47E6293FA51200FE56E6 /* SwiftUIViewController.swift */; };
+		844C47EA293FA5CB00FE56E6 /* AutolayoutBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47E9293FA5CB00FE56E6 /* AutolayoutBuilder.swift */; };
+		844C47EC293FA5E100FE56E6 /* UIView+AddSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47EB293FA5E100FE56E6 /* UIView+AddSubviews.swift */; };
+		844C47EE293FA6AF00FE56E6 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47ED293FA6AF00FE56E6 /* Users.swift */; };
+		844C47F2293FAE1600FE56E6 /* CustomNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47F1293FAE1600FE56E6 /* CustomNavBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		041A7531F4E3019FD622809A /* Pods-RiaApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiaApp.debug.xcconfig"; path = "Target Support Files/Pods-RiaApp/Pods-RiaApp.debug.xcconfig"; sourceTree = "<group>"; };
 		844C47A1293FA0CF00FE56E6 /* RiaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844C47A4293FA0CF00FE56E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		844C47A6293FA0CF00FE56E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +46,28 @@
 		844C47AD293FA0D300FE56E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		844C47B0293FA0D300FE56E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		844C47B2293FA0D300FE56E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		844C47BF293FA1A200FE56E6 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		844C47C2293FA1D200FE56E6 /* ModelRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRealm.swift; sourceTree = "<group>"; };
+		844C47C4293FA1F500FE56E6 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		844C47C8293FA23C00FE56E6 /* BaseFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFlow.swift; sourceTree = "<group>"; };
+		844C47CA293FA24900FE56E6 /* BaseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFactory.swift; sourceTree = "<group>"; };
+		844C47CC293FA25500FE56E6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		844C47CE293FA26000FE56E6 /* AnyBaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyBaseViewModel.swift; sourceTree = "<group>"; };
+		844C47D2293FA3DD00FE56E6 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
+		844C47D4293FA40000FE56E6 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
+		844C47D6293FA41A00FE56E6 /* UserListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewController.swift; sourceTree = "<group>"; };
+		844C47D8293FA42900FE56E6 /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
+		844C47DA293FA43500FE56E6 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
+		844C47DC293FA44900FE56E6 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		844C47E2293FA4E000FE56E6 /* AnySwiftUIHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnySwiftUIHolderView.swift; sourceTree = "<group>"; };
+		844C47E4293FA4FE00FE56E6 /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		844C47E6293FA51200FE56E6 /* SwiftUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIViewController.swift; sourceTree = "<group>"; };
+		844C47E9293FA5CB00FE56E6 /* AutolayoutBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutolayoutBuilder.swift; sourceTree = "<group>"; };
+		844C47EB293FA5E100FE56E6 /* UIView+AddSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSubviews.swift"; sourceTree = "<group>"; };
+		844C47ED293FA6AF00FE56E6 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		844C47F1293FAE1600FE56E6 /* CustomNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavBar.swift; sourceTree = "<group>"; };
+		C39F45CBB351175F51ED2867 /* Pods_RiaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RiaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FBC9406B95CD95097FD48828 /* Pods-RiaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiaApp.release.xcconfig"; path = "Target Support Files/Pods-RiaApp/Pods-RiaApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +75,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F95663B171D0D71D803A644 /* Pods_RiaApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C58DCC4C1208398F64917C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C39F45CBB351175F51ED2867 /* Pods_RiaApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		844C4798293FA0CE00FE56E6 = {
 			isa = PBXGroup;
 			children = (
 				844C47A3293FA0CF00FE56E6 /* RiaApp */,
 				844C47A2293FA0CF00FE56E6 /* Products */,
+				DBEE90FEDE3451605AB96426 /* Pods */,
+				1C58DCC4C1208398F64917C4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +111,196 @@
 		844C47A3293FA0CF00FE56E6 /* RiaApp */ = {
 			isa = PBXGroup;
 			children = (
+				844C47BA293FA15700FE56E6 /* Scenes */,
+				844C47BC293FA16A00FE56E6 /* Utilities */,
+				844C47BB293FA15D00FE56E6 /* Data */,
+				844C47F3293FAE5B00FE56E6 /* Resources */,
+				844C47F4293FAE6E00FE56E6 /* Application */,
+				844C47B2293FA0D300FE56E6 /* Info.plist */,
+			);
+			path = RiaApp;
+			sourceTree = "<group>";
+		};
+		844C47BA293FA15700FE56E6 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				844C47D0293FA3A300FE56E6 /* UsersList */,
+				844C47D1293FA3B500FE56E6 /* UserInfo */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		844C47BB293FA15D00FE56E6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				844C47BD293FA18600FE56E6 /* Realm */,
+				844C47BE293FA18D00FE56E6 /* Network */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		844C47BC293FA16A00FE56E6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				844C47EF293FADF600FE56E6 /* SwiftUI */,
+				844C47DE293FA4A400FE56E6 /* UIKit */,
+				844C47C7293FA21C00FE56E6 /* Flow */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		844C47BD293FA18600FE56E6 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				844C47C1293FA1BC00FE56E6 /* Models */,
+				844C47BF293FA1A200FE56E6 /* RealmManager.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		844C47BE293FA18D00FE56E6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				844C47C6293FA21100FE56E6 /* Models */,
+				844C47C4293FA1F500FE56E6 /* APIService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		844C47C1293FA1BC00FE56E6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				844C47C2293FA1D200FE56E6 /* ModelRealm.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		844C47C6293FA21100FE56E6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				844C47ED293FA6AF00FE56E6 /* Users.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		844C47C7293FA21C00FE56E6 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				844C47C8293FA23C00FE56E6 /* BaseFlow.swift */,
+				844C47CA293FA24900FE56E6 /* BaseFactory.swift */,
+				844C47CC293FA25500FE56E6 /* BaseViewController.swift */,
+				844C47CE293FA26000FE56E6 /* AnyBaseViewModel.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
+		844C47D0293FA3A300FE56E6 /* UsersList */ = {
+			isa = PBXGroup;
+			children = (
+				844C47D2293FA3DD00FE56E6 /* UserListView.swift */,
+				844C47D4293FA40000FE56E6 /* UserListViewModel.swift */,
+				844C47D6293FA41A00FE56E6 /* UserListViewController.swift */,
+			);
+			path = UsersList;
+			sourceTree = "<group>";
+		};
+		844C47D1293FA3B500FE56E6 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				844C47D8293FA42900FE56E6 /* UserInfoView.swift */,
+				844C47DA293FA43500FE56E6 /* UserInfoViewModel.swift */,
+				844C47DC293FA44900FE56E6 /* UserInfoViewController.swift */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
+		844C47DE293FA4A400FE56E6 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				844C47E8293FA5BC00FE56E6 /* Autolayout */,
+				844C47DF293FA4BC00FE56E6 /* SwiftUIHosting */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		844C47DF293FA4BC00FE56E6 /* SwiftUIHosting */ = {
+			isa = PBXGroup;
+			children = (
+				844C47E1293FA4CC00FE56E6 /* Helpers */,
+				844C47E0293FA4C800FE56E6 /* Protocols */,
+			);
+			path = SwiftUIHosting;
+			sourceTree = "<group>";
+		};
+		844C47E0293FA4C800FE56E6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				844C47E2293FA4E000FE56E6 /* AnySwiftUIHolderView.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		844C47E1293FA4CC00FE56E6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				844C47E4293FA4FE00FE56E6 /* SwiftUIView.swift */,
+				844C47E6293FA51200FE56E6 /* SwiftUIViewController.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		844C47E8293FA5BC00FE56E6 /* Autolayout */ = {
+			isa = PBXGroup;
+			children = (
+				844C47E9293FA5CB00FE56E6 /* AutolayoutBuilder.swift */,
+				844C47EB293FA5E100FE56E6 /* UIView+AddSubviews.swift */,
+			);
+			path = Autolayout;
+			sourceTree = "<group>";
+		};
+		844C47EF293FADF600FE56E6 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				844C47F0293FAE0B00FE56E6 /* Views */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		844C47F0293FAE0B00FE56E6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				844C47F1293FAE1600FE56E6 /* CustomNavBar.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		844C47F3293FAE5B00FE56E6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				844C47AD293FA0D300FE56E6 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		844C47F4293FAE6E00FE56E6 /* Application */ = {
+			isa = PBXGroup;
+			children = (
 				844C47A4293FA0CF00FE56E6 /* AppDelegate.swift */,
 				844C47A6293FA0CF00FE56E6 /* SceneDelegate.swift */,
 				844C47A8293FA0CF00FE56E6 /* ViewController.swift */,
 				844C47AA293FA0CF00FE56E6 /* Main.storyboard */,
-				844C47AD293FA0D300FE56E6 /* Assets.xcassets */,
 				844C47AF293FA0D300FE56E6 /* LaunchScreen.storyboard */,
-				844C47B2293FA0D300FE56E6 /* Info.plist */,
 			);
-			path = RiaApp;
+			path = Application;
+			sourceTree = "<group>";
+		};
+		DBEE90FEDE3451605AB96426 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				041A7531F4E3019FD622809A /* Pods-RiaApp.debug.xcconfig */,
+				FBC9406B95CD95097FD48828 /* Pods-RiaApp.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +310,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 844C47B5293FA0D300FE56E6 /* Build configuration list for PBXNativeTarget "RiaApp" */;
 			buildPhases = (
+				5E34EFDC2C4D3615E5B8FEC5 /* [CP] Check Pods Manifest.lock */,
 				844C479D293FA0CF00FE56E6 /* Sources */,
 				844C479E293FA0CF00FE56E6 /* Frameworks */,
 				844C479F293FA0CF00FE56E6 /* Resources */,
+				82BCBBF5BC7F78F744B289B2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -103,7 +341,7 @@
 				};
 			};
 			buildConfigurationList = 844C479C293FA0CF00FE56E6 /* Build configuration list for PBXProject "RiaApp" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -133,14 +371,76 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5E34EFDC2C4D3615E5B8FEC5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RiaApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82BCBBF5BC7F78F744B289B2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RiaApp/Pods-RiaApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RiaApp/Pods-RiaApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RiaApp/Pods-RiaApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		844C479D293FA0CF00FE56E6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				844C47A9293FA0CF00FE56E6 /* ViewController.swift in Sources */,
+				844C47DD293FA44900FE56E6 /* UserInfoViewController.swift in Sources */,
+				844C47E5293FA4FE00FE56E6 /* SwiftUIView.swift in Sources */,
+				844C47D9293FA42900FE56E6 /* UserInfoView.swift in Sources */,
+				844C47E3293FA4E000FE56E6 /* AnySwiftUIHolderView.swift in Sources */,
+				844C47DB293FA43500FE56E6 /* UserInfoViewModel.swift in Sources */,
+				844C47D5293FA40000FE56E6 /* UserListViewModel.swift in Sources */,
+				844C47C0293FA1A200FE56E6 /* RealmManager.swift in Sources */,
+				844C47EC293FA5E100FE56E6 /* UIView+AddSubviews.swift in Sources */,
+				844C47EA293FA5CB00FE56E6 /* AutolayoutBuilder.swift in Sources */,
+				844C47EE293FA6AF00FE56E6 /* Users.swift in Sources */,
+				844C47CF293FA26000FE56E6 /* AnyBaseViewModel.swift in Sources */,
 				844C47A5293FA0CF00FE56E6 /* AppDelegate.swift in Sources */,
+				844C47C3293FA1D200FE56E6 /* ModelRealm.swift in Sources */,
+				844C47E7293FA51200FE56E6 /* SwiftUIViewController.swift in Sources */,
+				844C47C5293FA1F500FE56E6 /* APIService.swift in Sources */,
+				844C47CD293FA25500FE56E6 /* BaseViewController.swift in Sources */,
+				844C47D7293FA41A00FE56E6 /* UserListViewController.swift in Sources */,
+				844C47C9293FA23C00FE56E6 /* BaseFlow.swift in Sources */,
+				844C47F2293FAE1600FE56E6 /* CustomNavBar.swift in Sources */,
 				844C47A7293FA0CF00FE56E6 /* SceneDelegate.swift in Sources */,
+				844C47D3293FA3DD00FE56E6 /* UserListView.swift in Sources */,
+				844C47CB293FA24900FE56E6 /* BaseFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +582,7 @@
 		};
 		844C47B6293FA0D300FE56E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 041A7531F4E3019FD622809A /* Pods-RiaApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -310,6 +611,7 @@
 		};
 		844C47B7293FA0D300FE56E6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FBC9406B95CD95097FD48828 /* Pods-RiaApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
