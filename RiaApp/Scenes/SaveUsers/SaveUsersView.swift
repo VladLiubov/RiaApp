@@ -8,34 +8,31 @@
 import SwiftUI
 import Combine
 import SDWebImageSwiftUI
+import RealmSwift
 
 extension SaveUsersViewController {
     
     struct ContainerView: View {
         
         @ObservedObject var viewModel: ViewModel
-        @StateObject var realmManager = RealmManager()
+        @ObservedResults(UsersRealm.self) var users
         
         init(_ viewModel: ViewModel) {
             self._viewModel = .init(initialValue: viewModel)
         }
         
         public var body: some View {
+            
             VStack {
                 navBar
-                listComments
+                listUsers
             }
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-            .background(
-                LinearGradient(colors: [.blue, .orange], startPoint: .topLeading, endPoint: .bottomTrailing)
-                    .hueRotation(.degrees(0))
-                    .edgesIgnoringSafeArea(.all)
-            )
         }
         
         //NavBar
         private var navBar: some View {
-            CustomNavBar {
+            return CustomNavBar {
                 Button {
                     viewModel.action(.popupDidDisappear)
                 } label: {
@@ -49,56 +46,123 @@ extension SaveUsersViewController {
                     .foregroundColor(.orange)
                 
             } right: {
-                
+                Button {
+                    withAnimation {
+                        viewModel.action(.addUser)
+                    }
+                } label: {
+                    Text("Add")
+                        .foregroundColor(.orange)
+                }
             }
             .padding(.horizontal, 20)
             .padding(.top, 15)
         }
         
-        //List Comments
-        private var listComments: some View {
-            ScrollView(.vertical, showsIndicators: false) {
-                LazyVStack(alignment: .leading, spacing: 12) {
-                    ForEach(realmManager.users, id: \.id) { user in
-                        userRow(user)
-                            .frame(
-                                minWidth: 0,
-                                maxWidth: .infinity,
-                                minHeight: 0,
-                                maxHeight: .infinity,
-                                alignment: .topLeading
-                            )
-                            .background(Color.clear)
+        //List Users
+        private var listUsers: some View {
+            return ScrollView(.vertical, showsIndicators: false) {
+                VStack(alignment: .leading, spacing: 12) {
+                    ForEach(users, id: \.self) { user in
+                        VStack {
+                            HStack {
+                                if !user.image.isEmpty {
+                                    Image(uiImage: FileHelper().loadImage(fileName: user.image)!)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 80, height: 80)
+                                        .clipShape(Circle())
+                                } else {
+                                    Image("")
+                                        .resizable()
+                                        .scaledToFill()
+                                        .background(Color.gray)
+                                        .frame(width: 80, height: 80)
+                                        .clipShape(Circle())
+                                }
+                                
+                                Text(user.name)
+                                    .bold()
+                                    .font(.title3)
+                                
+                                Button {
+                                    viewModel.action(.editUser(user))
+                                } label: {
+                                    Image(systemName: "highlighter")
+                                        .foregroundColor(Color.gray)
+                                }
+                                .padding(.trailing, 10)
+                                Spacer()
+                            }
+                            HStack {
+                                Divider()
+                                    .frame(width: 4)
+                                    .overlay(.purple.opacity(0.6))
+                                    .cornerRadius(16)
+                                
+                                VStack(alignment: .leading, spacing: 6) {
+                                    if !user.phone.isEmpty {
+                                        HStack {
+                                            Text("Phone:")
+                                            Text(user.phone)
+                                            Spacer()
+                                        }
+                                    }
+                                    if user.email != "" {
+                                        HStack {
+                                            Text("Email:")
+                                            Text(user.email)
+                                            Spacer()
+                                        }
+                                    }
+                                    if user.country != "" {
+                                        HStack {
+                                            Text("Country:")
+                                            Text(user.country)
+                                            Spacer()
+                                        }
+                                    }
+                                    if user.city != "" {
+                                        HStack {
+                                            Text("City:")
+                                            Text(user.city)
+                                            Spacer()
+                                        }
+                                    }
+                                    if user.street != "" {
+                                        HStack {
+                                            Text("Street:")
+                                            Text(user.street)
+                                            Spacer()
+                                        }
+                                    }
+                                    if user.number != "" {
+                                        HStack {
+                                            Text("Number:")
+                                            Text(user.number)
+                                            Spacer()
+                                        }
+                                    }
+                                }
+                                .padding()
+                                .bold()
+                                .font(.caption)
+                                .background(Color.purple.opacity(0.2))
+                                .cornerRadius(12)
+                            }
+                        }
+                        .frame(
+                            minWidth: 0,
+                            maxWidth: .infinity,
+                            minHeight: 0,
+                            maxHeight: .infinity,
+                            alignment: .topLeading
+                        )
+                        .background(Color.clear)
                     }
                 }
                 .padding(.horizontal, 10)
             }
-        }
-        
-        func userRow(_ user: UsersRealm) -> some View {
-          return HStack {
-                  Image(uiImage: viewModel.loadImage(fileName: user.image)!)
-                      .resizable()
-                      .scaledToFit()
-                      .frame(width: 80, height: 80)
-                      .clipShape(Circle())
-            
-            VStack(alignment: .leading, spacing: 6, content: {
-                  Text(user.name)
-                  Text(user.phone)
-            })
-            .bold()
-            .foregroundColor(Color.black)
-            .font(.caption)
-            Spacer()
-              Button {
-                  realmManager.deleteUser(name: user.name)
-              } label: {
-                  Image(systemName: "minus.circle")
-                      .foregroundColor(Color.red)
-              }
-              .padding(.trailing, 5)
-          }
         }
     }
 }

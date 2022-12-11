@@ -37,6 +37,16 @@
 		844C47F7293FC5AA00FE56E6 /* SaveUsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47F6293FC5AA00FE56E6 /* SaveUsersView.swift */; };
 		844C47F9293FC5BE00FE56E6 /* SaveUsersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47F8293FC5BE00FE56E6 /* SaveUsersViewModel.swift */; };
 		844C47FB293FC5CC00FE56E6 /* SaveUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C47FA293FC5CC00FE56E6 /* SaveUsersViewController.swift */; };
+		844C48042940AAB900FE56E6 /* FileHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C48032940AAB900FE56E6 /* FileHelper.swift */; };
+		844C480A2940D58900FE56E6 /* MapInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C48092940D58900FE56E6 /* MapInfo.swift */; };
+		844C486A29435E2600FE56E6 /* EditUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C486929435E2600FE56E6 /* EditUserView.swift */; };
+		844C486C29435E3500FE56E6 /* EditUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C486B29435E3500FE56E6 /* EditUserViewModel.swift */; };
+		844C486E29435E4600FE56E6 /* EditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C486D29435E4600FE56E6 /* EditUserViewController.swift */; };
+		844C48702943658E00FE56E6 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C486F2943658E00FE56E6 /* ImagePicker.swift */; };
+		844C4872294381DC00FE56E6 /* BorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844C4871294381DB00FE56E6 /* BorderedTextField.swift */; };
+		847ABB3C29460D0900E24397 /* AddUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847ABB3B29460D0900E24397 /* AddUserView.swift */; };
+		847ABB3E29460D1600E24397 /* AdduserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847ABB3D29460D1600E24397 /* AdduserViewModel.swift */; };
+		847ABB4029460D2600E24397 /* AddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847ABB3F29460D2600E24397 /* AddUserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +82,16 @@
 		844C47F6293FC5AA00FE56E6 /* SaveUsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveUsersView.swift; sourceTree = "<group>"; };
 		844C47F8293FC5BE00FE56E6 /* SaveUsersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveUsersViewModel.swift; sourceTree = "<group>"; };
 		844C47FA293FC5CC00FE56E6 /* SaveUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveUsersViewController.swift; sourceTree = "<group>"; };
+		844C48032940AAB900FE56E6 /* FileHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileHelper.swift; sourceTree = "<group>"; };
+		844C48092940D58900FE56E6 /* MapInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInfo.swift; sourceTree = "<group>"; };
+		844C486929435E2600FE56E6 /* EditUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserView.swift; sourceTree = "<group>"; };
+		844C486B29435E3500FE56E6 /* EditUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserViewModel.swift; sourceTree = "<group>"; };
+		844C486D29435E4600FE56E6 /* EditUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserViewController.swift; sourceTree = "<group>"; };
+		844C486F2943658E00FE56E6 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		844C4871294381DB00FE56E6 /* BorderedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedTextField.swift; sourceTree = "<group>"; };
+		847ABB3B29460D0900E24397 /* AddUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserView.swift; sourceTree = "<group>"; };
+		847ABB3D29460D1600E24397 /* AdduserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdduserViewModel.swift; sourceTree = "<group>"; };
+		847ABB3F29460D2600E24397 /* AddUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserViewController.swift; sourceTree = "<group>"; };
 		C39F45CBB351175F51ED2867 /* Pods_RiaApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RiaApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBC9406B95CD95097FD48828 /* Pods-RiaApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiaApp.release.xcconfig"; path = "Target Support Files/Pods-RiaApp/Pods-RiaApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,6 +153,8 @@
 				844C47D0293FA3A300FE56E6 /* UsersList */,
 				844C47D1293FA3B500FE56E6 /* UserInfo */,
 				844C47F5293FC58B00FE56E6 /* SaveUsers */,
+				847ABB3A29460CE500E24397 /* AddUser */,
+				844C486829435DF700FE56E6 /* EditUser */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -149,6 +171,8 @@
 		844C47BC293FA16A00FE56E6 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				844C48072940D56C00FE56E6 /* Map */,
+				844C48022940AAA700FE56E6 /* FileHelper */,
 				844C47EF293FADF600FE56E6 /* SwiftUI */,
 				844C47DE293FA4A400FE56E6 /* UIKit */,
 				844C47C7293FA21C00FE56E6 /* Flow */,
@@ -277,6 +301,8 @@
 			isa = PBXGroup;
 			children = (
 				844C47F1293FAE1600FE56E6 /* CustomNavBar.swift */,
+				844C486F2943658E00FE56E6 /* ImagePicker.swift */,
+				844C4871294381DB00FE56E6 /* BorderedTextField.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -309,6 +335,50 @@
 				844C47FA293FC5CC00FE56E6 /* SaveUsersViewController.swift */,
 			);
 			path = SaveUsers;
+			sourceTree = "<group>";
+		};
+		844C48022940AAA700FE56E6 /* FileHelper */ = {
+			isa = PBXGroup;
+			children = (
+				844C48032940AAB900FE56E6 /* FileHelper.swift */,
+			);
+			path = FileHelper;
+			sourceTree = "<group>";
+		};
+		844C48072940D56C00FE56E6 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				844C48082940D57400FE56E6 /* Models */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		844C48082940D57400FE56E6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				844C48092940D58900FE56E6 /* MapInfo.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		844C486829435DF700FE56E6 /* EditUser */ = {
+			isa = PBXGroup;
+			children = (
+				844C486929435E2600FE56E6 /* EditUserView.swift */,
+				844C486B29435E3500FE56E6 /* EditUserViewModel.swift */,
+				844C486D29435E4600FE56E6 /* EditUserViewController.swift */,
+			);
+			path = EditUser;
+			sourceTree = "<group>";
+		};
+		847ABB3A29460CE500E24397 /* AddUser */ = {
+			isa = PBXGroup;
+			children = (
+				847ABB3B29460D0900E24397 /* AddUserView.swift */,
+				847ABB3D29460D1600E24397 /* AdduserViewModel.swift */,
+				847ABB3F29460D2600E24397 /* AddUserViewController.swift */,
+			);
+			path = AddUser;
 			sourceTree = "<group>";
 		};
 		DBEE90FEDE3451605AB96426 /* Pods */ = {
@@ -436,8 +506,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				844C47A9293FA0CF00FE56E6 /* ViewController.swift in Sources */,
+				847ABB4029460D2600E24397 /* AddUserViewController.swift in Sources */,
 				844C47DD293FA44900FE56E6 /* UserInfoViewController.swift in Sources */,
 				844C47E5293FA4FE00FE56E6 /* SwiftUIView.swift in Sources */,
+				844C486C29435E3500FE56E6 /* EditUserViewModel.swift in Sources */,
+				844C48042940AAB900FE56E6 /* FileHelper.swift in Sources */,
 				844C47D9293FA42900FE56E6 /* UserInfoView.swift in Sources */,
 				844C47E3293FA4E000FE56E6 /* AnySwiftUIHolderView.swift in Sources */,
 				844C47DB293FA43500FE56E6 /* UserInfoViewModel.swift in Sources */,
@@ -446,11 +519,16 @@
 				844C47EC293FA5E100FE56E6 /* UIView+AddSubviews.swift in Sources */,
 				844C47EA293FA5CB00FE56E6 /* AutolayoutBuilder.swift in Sources */,
 				844C47EE293FA6AF00FE56E6 /* Users.swift in Sources */,
+				844C48702943658E00FE56E6 /* ImagePicker.swift in Sources */,
 				844C47CF293FA26000FE56E6 /* AnyBaseViewModel.swift in Sources */,
 				844C47FB293FC5CC00FE56E6 /* SaveUsersViewController.swift in Sources */,
+				844C486E29435E4600FE56E6 /* EditUserViewController.swift in Sources */,
 				844C47A5293FA0CF00FE56E6 /* AppDelegate.swift in Sources */,
 				844C47C3293FA1D200FE56E6 /* ModelRealm.swift in Sources */,
+				847ABB3C29460D0900E24397 /* AddUserView.swift in Sources */,
 				844C47E7293FA51200FE56E6 /* SwiftUIViewController.swift in Sources */,
+				844C486A29435E2600FE56E6 /* EditUserView.swift in Sources */,
+				847ABB3E29460D1600E24397 /* AdduserViewModel.swift in Sources */,
 				844C47C5293FA1F500FE56E6 /* APIService.swift in Sources */,
 				844C47CD293FA25500FE56E6 /* BaseViewController.swift in Sources */,
 				844C47D7293FA41A00FE56E6 /* UserListViewController.swift in Sources */,
@@ -459,8 +537,10 @@
 				844C47F2293FAE1600FE56E6 /* CustomNavBar.swift in Sources */,
 				844C47A7293FA0CF00FE56E6 /* SceneDelegate.swift in Sources */,
 				844C47D3293FA3DD00FE56E6 /* UserListView.swift in Sources */,
+				844C4872294381DC00FE56E6 /* BorderedTextField.swift in Sources */,
 				844C47CB293FA24900FE56E6 /* BaseFactory.swift in Sources */,
 				844C47F9293FC5BE00FE56E6 /* SaveUsersViewModel.swift in Sources */,
+				844C480A2940D58900FE56E6 /* MapInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -611,6 +691,7 @@
 				DEVELOPMENT_TEAM = 3569VZF8J9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RiaApp/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "The app needs access to photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -640,6 +721,7 @@
 				DEVELOPMENT_TEAM = 3569VZF8J9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RiaApp/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "The app needs access to photos";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

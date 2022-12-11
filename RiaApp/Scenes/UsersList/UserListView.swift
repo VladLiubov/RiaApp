@@ -17,26 +17,21 @@ extension UsersListViewController {
         
         init(_ viewModel: ViewModel) {
             self._viewModel = .init(initialValue: viewModel)
-            viewModel.usersList()
+            viewModel.getUsersList()
         }
         
         public var body: some View {
             VStack {
                 navBar
-                listComments
+                listUsers
             }
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-            .background(
-                LinearGradient(colors: [.blue, .orange], startPoint: .topLeading, endPoint: .bottomTrailing)
-                    .hueRotation(.degrees(0))
-                    .edgesIgnoringSafeArea(.all)
-            )
         }
         
         //NavBar
         private var navBar: some View {
             CustomNavBar {
-               
+                
             } center: {
                 Text("Users")
                     .font(.title2)
@@ -55,8 +50,8 @@ extension UsersListViewController {
             .padding(.top, 15)
         }
         
-        //List Comments
-        private var listComments: some View {
+        //List Users
+        private var listUsers: some View {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVStack(alignment: .leading, spacing: 12) {
                     ForEach(viewModel.state.usersList, id: \.self) { user in
@@ -79,23 +74,22 @@ extension UsersListViewController {
         }
         
         func userRow(_ user: UserInfo) -> some View {
-          return HStack {
-              WebImage(url: URL(string:user.picture.medium))
-                .resizable()
-                .scaledToFit()
-                .frame(width: 80, height: 80)
-                .clipShape(Circle())
-            
-            VStack(alignment: .leading, spacing: 6, content: {
-                  Text(user.name.first + " " + user.name.last)
-                  Text(user.phone)
-            })
-            .bold()
-            .foregroundColor(Color.black)
-            .font(.caption)
-          }
+            return HStack {
+                WebImage(url: URL(string:user.picture.medium))
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 80, height: 80)
+                    .clipShape(Circle())
+                
+                VStack(alignment: .leading, spacing: 6, content: {
+                    Text(user.name.first + " " + user.name.last)
+                        .font(.headline)
+                    Text(user.phone)
+                        .font(.caption2)
+                })
+                .bold()
+                .font(.caption)
+            }
         }
     }
 }
-
-

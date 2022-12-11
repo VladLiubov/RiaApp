@@ -1,15 +1,15 @@
 //
-//  SaveUsersViewController.swift
+//  AddUserViewController.swift
 //  RiaApp
 //
-//  Created by Admin on 06.12.2022.
+//  Created by Admin on 11.12.2022.
 //
 
 import Combine
 import SwiftUI
 
-class SaveUsersViewController: SwiftUIViewController {
-    typealias ViewModel = SaveUsersViewModel
+class AddUserViewController: SwiftUIViewController {
+    typealias ViewModel = AddUserViewModel
     
     private let viewModel: ViewModel
     private var cancellables = Set<AnyCancellable>()
@@ -44,7 +44,7 @@ class SaveUsersViewController: SwiftUIViewController {
 }
 
 // - Subscribe
-private extension SaveUsersViewController {
+private extension AddUserViewController {
     
     func subscribe() {
         viewModel.$state.sink { [weak self] state in
@@ -61,22 +61,8 @@ private extension SaveUsersViewController {
         
         switch screen {
             
-        case .editeUserScreen:
-            let userInput: UsersRealm = self.viewModel.state.editUser!
-            let viewModel = EditUserViewModel(state: .init())
-            viewModel.action(.addUser(userInput))
-            let controller = EditUserViewController(viewModel)
-            
-            show(controller, intent: .present)
-            
-        case .addUserScreen:
-            let viewModel = AddUserViewModel(state: .init())
-            let controller = AddUserViewController(viewModel)
-            
-            show(controller, intent: .present)
-            
         case .back:
-            hide(intent: .pop)
+            hide(intent: .dismiss)
         default:
             break
         }

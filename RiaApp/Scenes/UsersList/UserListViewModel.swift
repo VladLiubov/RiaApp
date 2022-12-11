@@ -47,7 +47,7 @@ class UsersListViewModel: BaseViewModel<UsersListViewModel.State, UsersListViewM
         }
     }
     
-    func usersList() {
+    func getUsersList() {
         UserService
             .usersList()
             .receive(on: RunLoop.main)

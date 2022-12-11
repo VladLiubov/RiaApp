@@ -19,17 +19,16 @@ class RealmManager: ObservableObject {
     
     func openRealm() {
         do {
-            let config = Realm.Configuration(schemaVersion: 1)
-            
-            Realm.Configuration.defaultConfiguration = config
-            localRealm = try? Realm()
-            
+            let migrationBlock: MigrationBlock = { migration, oldSchemaVersion in
+            }
+            Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 1, migrationBlock: migrationBlock)
+            localRealm = try Realm()
         } catch {
             print("Error opening Realm", error.localizedDescription)
         }
     }
     
-    func getUsers() -> [UsersRealm] {
+    func getUsers() {
         if let localRealm = localRealm {
             let allUsers = localRealm.objects(UsersRealm.self)
             users = []
@@ -38,19 +37,43 @@ class RealmManager: ObservableObject {
                 users.append(person)
             }
         }
-        return users
+        users.sort(by: { $0.name > $1.name })
     }
     
-    func addUser(user: UserInfo, image: String) {
+    func updateUser(user: UsersRealm, name: String, image: String, phone: String, email: String, country: String, city: String, street: String, number: String) {
         if let localRealm = localRealm {
-            let person = UsersRealm(value: [  "name": "\(user.name.first + " " + user.name.last)",
-                                                 "image": image,
-                                                 "phone": user.phone,
-                                                 "email": user.email,
-                                                 "city": user.location.city,
-                                                 "street": user.location.street.name,
-                                                 "number": String(user.location.street.number)
-                                                ])
+            let person = UsersRealm(value: [ "id": user.id,
+                                             "name": name,
+                                             "image": image,
+                                             "phone": phone,
+                                             "email": email,
+                                             "country": country,
+                                             "city": city,
+                                             "street": street,
+                                             "number": number
+                                           ])
+            do {
+                try localRealm.write {
+                    localRealm.add(person, update: .modified)
+                    getUsers()
+                }
+            } catch {
+                print("Error adding user to : \(error)")
+            }
+        }
+    }
+    
+    func addUser(name: String, image: String, phone: String, email: String, country: String, city: String, street: String, number: String) {
+        if let localRealm = localRealm {
+            let person = UsersRealm(value: [  "name": name,
+                                              "image": image,
+                                              "phone": phone,
+                                              "email": email,
+                                              "country": country,
+                                              "city": city,
+                                              "street": street,
+                                              "number": number
+                                           ])
             
             let result = users.contains { $0 == person }
             
@@ -60,7 +83,7 @@ class RealmManager: ObservableObject {
                 do {
                     try localRealm.write {
                         localRealm.add(person)
-                        print("Added: \(person)")
+                        getUsers()
                     }
                 } catch {
                     print("Error adding user to : \(error)")
@@ -72,12 +95,12 @@ class RealmManager: ObservableObject {
     func deleteUser(name: String) {
         if let localRealm = localRealm {
             do {
-                let personToDelete = localRealm.objects(UsersRealm.self).first(where: {$0.name == name })
+                let userToDelete = localRealm.objects(UsersRealm.self).first(where: {$0.name == name })
                 
-                guard personToDelete != nil else {return}
+                guard userToDelete != nil else {return}
                 
                 try localRealm.write {
-                    localRealm.delete(personToDelete!)
+                    localRealm.delete(userToDelete!)
                     getUsers()
                 }
             } catch {
@@ -87,46 +110,14 @@ class RealmManager: ObservableObject {
     }
     
     func saveImage(user: UserInfo, image: String) {
-        
-        let data = try? Data(contentsOf: URL(string: image)!)
-        let newImage = UIImage(data: data!)
-
-     guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
-
-        let fileName = UUID().uuidString
-        let fileURL = documentsDirectory.appendingPathComponent("\(fileName).jpg")
-        guard let data = newImage?.jpegData(compressionQuality: 1) else { return }
-
-        //Checks if file exists, removes it if so.
-        if FileManager.default.fileExists(atPath: fileURL.path) {
-            do {
-                try FileManager.default.removeItem(atPath: fileURL.path)
-                print("Removed old image")
-            } catch let removeError {
-                print("couldn't remove file at path", removeError)
-            }
+        if let url = URL(string: image) {
+            URLSession.shared.dataTask(with: url) { (data, response, error) in
+                guard let imageData = data else { return }
+                DispatchQueue.main.async {
+                    let saveImage = FileHelper().saveImage(data: imageData)
+                    self.addUser(name: "\(user.name.first + " " + user.name.last)", image: saveImage!, phone: user.phone, email: user.email, country: user.location.country, city: user.location.city, street: user.location.street.name, number: String(user.location.street.number))
+                }
+            }.resume()
         }
-
-        do {
-            let nameImage = save(image: newImage!, filename: "\(fileName).jpg")!
-            addUser(user: user, image: nameImage)
-        } catch let error {
-            print("error saving file with error", error)
-        }
-
     }
-    
-    private func save(image: UIImage, filename: String) -> String? {
-        var documentsUrl: URL {
-            return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        }
-        let fileURL = documentsUrl.appendingPathComponent(filename)
-        if let imageData = image.jpegData(compressionQuality: 1.0) {
-           try? imageData.write(to: fileURL, options: .atomic)
-           return filename // ----> Save fileName
-        }
-        print("Error saving image")
-        return nil
-    }
-
 }

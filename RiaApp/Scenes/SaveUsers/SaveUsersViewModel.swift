@@ -7,11 +7,16 @@
 
 import Combine
 import SwiftUI
+import RealmSwift
 
 class SaveUsersViewModel: BaseViewModel<SaveUsersViewModel.State, SaveUsersViewModel.Action, Never> {
     
+    @ObservedObject var realmManager = RealmManager()
+    
     enum Action {
         case popupDidDisappear
+        case editUser(UsersRealm)
+        case addUser
     }
     
     struct State: AnyState {
@@ -21,13 +26,16 @@ class SaveUsersViewModel: BaseViewModel<SaveUsersViewModel.State, SaveUsersViewM
         
         enum Screen: Equatable {
             case back
-            case showUserInfoScreen
+            case editeUserScreen
+            case addUserScreen
         }
         
         //Screen
         public fileprivate(set) var showedScreen: Screen?
         //User
         public fileprivate(set) var usersInfo: UserInfo?
+        //Edit
+        public fileprivate(set) var editUser: UsersRealm?
         
         init() {}
         
@@ -38,20 +46,13 @@ class SaveUsersViewModel: BaseViewModel<SaveUsersViewModel.State, SaveUsersViewM
         case .popupDidDisappear:
             state.showedScreen = nil
             state.showedScreen = .back
+        case let .editUser(user):
+            state.showedScreen = nil
+            state.editUser = user
+            state.showedScreen = .editeUserScreen
+        case .addUser:
+            state.showedScreen = nil
+            state.showedScreen = .addUserScreen
         }
-    }
-    
-    func loadImage(fileName: String) -> UIImage? {
-        var documentsUrl: URL {
-            return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        }
-        let fileURL = documentsUrl.appendingPathComponent(fileName)
-        do {
-            let imageData = try Data(contentsOf: fileURL)
-            return UIImage(data: imageData)
-        } catch {
-            print("Error loading image : \(error)")
-        }
-        return nil
     }
 }

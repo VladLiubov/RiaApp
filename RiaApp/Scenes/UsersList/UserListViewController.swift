@@ -9,74 +9,74 @@ import Combine
 import SwiftUI
 
 class UsersListViewController: SwiftUIViewController {
-  typealias ViewModel = UsersListViewModel
-  
-  private let viewModel: ViewModel
-  private var cancellables = Set<AnyCancellable>()
-  
-  init(_ viewModel: ViewModel) {
-    self.viewModel = viewModel
+    typealias ViewModel = UsersListViewModel
     
-    super.init(nibName: nil, bundle: nil)
+    private let viewModel: ViewModel
+    private var cancellables = Set<AnyCancellable>()
     
-    subscribe()
-  }
-  
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-  }
-  
-  required public init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  
-  public override func loadView() {
-    super.loadView()
-      
-      navigationController?.navigationBar.isHidden = true
-    
-    add(view: {
-      ContainerView(viewModel)
-    }, holderView: self.view) { holderView, contentView in
-      holderView.addSubviewFillingToEdges(contentView)
+    init(_ viewModel: ViewModel) {
+        self.viewModel = viewModel
+        
+        super.init(nibName: nil, bundle: nil)
+        
+        subscribe()
     }
-  }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    required public init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    public override func loadView() {
+        super.loadView()
+        
+        navigationController?.navigationBar.isHidden = true
+        
+        add(view: {
+            ContainerView(viewModel)
+        }, holderView: self.view) { holderView, contentView in
+            holderView.addSubviewFillingToEdges(contentView)
+        }
+    }
 }
 
 // - Subscribe
 private extension UsersListViewController {
-  
-  func subscribe() {
-    viewModel.$state.sink { [weak self] state in
-      self?.update(with: state)
-    }.store(in: &cancellables)
-  }
-  
-  func update(with state: ViewModel.State) {
-    updateShowedScreen(state.showedScreen)
-  }
-  
-  func updateShowedScreen(_ screen: ViewModel.State.Screen?) {
-    guard viewModel.state.showedScreen != screen else { return }
     
-    switch screen {
-        
-    case .showUserInfoScreen:
-        let userInput: UserInfo = self.viewModel.state.usersInfo!
-        let viewModel = UserInfoViewModel(state: .init())
-        viewModel.action(.updateUserInfo(userInput))
-        let controller = UserInfoViewController(viewModel)
-          
-        show(controller, intent: .push)
-        
-    case .showSaveUsersScreen:
-        let viewModel = SaveUsersViewModel(state: .init())
-        let controller = SaveUsersViewController(viewModel)
-          
-        show(controller, intent: .push)
-
-    default:
-      break
+    func subscribe() {
+        viewModel.$state.sink { [weak self] state in
+            self?.update(with: state)
+        }.store(in: &cancellables)
     }
-  }
+    
+    func update(with state: ViewModel.State) {
+        updateShowedScreen(state.showedScreen)
+    }
+    
+    func updateShowedScreen(_ screen: ViewModel.State.Screen?) {
+        guard viewModel.state.showedScreen != screen else { return }
+        
+        switch screen {
+            
+        case .showUserInfoScreen:
+            let userInput: UserInfo = self.viewModel.state.usersInfo!
+            let viewModel = UserInfoViewModel(state: .init())
+            viewModel.action(.updateUserInfo(userInput))
+            let controller = UserInfoViewController(viewModel)
+            
+            show(controller, intent: .push)
+            
+        case .showSaveUsersScreen:
+            let viewModel = SaveUsersViewModel(state: .init())
+            let controller = SaveUsersViewController(viewModel)
+            
+            show(controller, intent: .push)
+            
+        default:
+            break
+        }
+    }
 }

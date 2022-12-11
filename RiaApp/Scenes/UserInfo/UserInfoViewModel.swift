@@ -8,10 +8,11 @@
 import Combine
 import SwiftUI
 import SDWebImageSwiftUI
+import MapKit
 
 class UserInfoViewModel: BaseViewModel<UserInfoViewModel.State, UserInfoViewModel.Action, Never> {
     
-    @StateObject var realmManager = RealmManager()
+    @ObservedObject var realmManager = RealmManager()
     
     enum Action {
         case updateUserInfo(UserInfo)
@@ -31,6 +32,7 @@ class UserInfoViewModel: BaseViewModel<UserInfoViewModel.State, UserInfoViewMode
         public fileprivate(set) var showedScreen: Screen?
         //User
         public fileprivate(set) var usersInfo: UserInfo!
+        public fileprivate(set) var mapInfo: MapInfo!
         public fileprivate(set) var showSaveUser: Bool = false
         
         init() {}
@@ -41,6 +43,8 @@ class UserInfoViewModel: BaseViewModel<UserInfoViewModel.State, UserInfoViewMode
         switch action {
         case let .updateUserInfo(user):
             state.usersInfo = user
+            let location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: Double(user.location.coordinates.latitude)!, longitude: Double(user.location.coordinates.longitude)!)
+            state.mapInfo = MapInfo(region: MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)), location: [LocationInfo(name: "", coordinate: location)])
         case .popupDidDisappear:
             state.showedScreen = nil
             state.showedScreen = .back
@@ -56,8 +60,8 @@ class UserInfoViewModel: BaseViewModel<UserInfoViewModel.State, UserInfoViewMode
         }
     }
     
-    //Realm Save Persons
-    func checkSavedPerson() {
+    //Realm Save Users
+    func checkSavedUser() {
         let persons = realmManager.users
         if (persons.first(where: { $0.name == "\(state.usersInfo.name.first + " " + state.usersInfo.name.last)"}) != nil) {
             state.showSaveUser = true
